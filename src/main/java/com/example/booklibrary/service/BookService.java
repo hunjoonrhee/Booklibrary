@@ -21,7 +21,7 @@ public class BookService {
     }
 
     public Book getBookById(String id){
-        return new Book("testBook", "testauthor", "13");
+        return bookDB.getBookById(id);
     }
 
 }

@@ -37,13 +37,13 @@ class BookServiceTest {
     void getBookById_ShouldReturn_BookForGivenId(){
         // GIVEN
         String id = "1";
-        when(bookDB.getBookById(id)).thenReturn(new Book("testBook", "testauthor", "13"));
+        when(bookDB.getBookById(id)).thenReturn(new Book("Hans im Glück", "Jacob Grimm", "1"));
 
         // WHEN
         Book actual = bookService.getBookById(id);
 
         //THEN
-        assertEquals(new Book("testBook", "testauthor", "13"), actual);
+        assertEquals(new Book("Hans im Glück", "Jacob Grimm", "1"), actual);
     }
 
 }
