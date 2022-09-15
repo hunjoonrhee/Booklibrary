@@ -4,10 +4,7 @@ import com.example.booklibrary.model.Book;
 import com.example.booklibrary.repository.BookDB;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -44,6 +41,15 @@ class BookServiceTest {
 
         //THEN
         assertEquals(new Book("Hans im Glück", "Jacob Grimm", "1"), actual);
+    }
+
+    @Test
+    void getBookById_whenIdDoesNotExists_throwsException(){
+        //GIVEN
+        when(bookDB.getBookById("1")).thenReturn(null);
+
+        //WHEN & THEN
+        assertThrows(NoSuchElementException.class, () -> bookService.getBookById("1"));
     }
 
 }
