@@ -31,4 +31,9 @@ public class BookService {
         return bookDB.getBookById(id);
     }
 
+    public Book postNewBook(Book book){
+        Book newBook = bookDB.postNewBook(book);
+        return newBook;
+    }
+
 }

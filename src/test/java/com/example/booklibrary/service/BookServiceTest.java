@@ -52,4 +52,18 @@ class BookServiceTest {
         assertThrows(NoSuchElementException.class, () -> bookService.getBookById("1"));
     }
 
+    @Test
+    void postNewBook_ShouldReturn_NewAddedBook(){
+        // GIVEN
+        Book book = new Book("Hans im Glück", "Jacob Grimm", "1");
+
+        when(bookDB.postNewBook(book)).thenReturn(book);
+
+        // WHEN
+        Book actual = bookService.postNewBook(book);
+
+        //THEN
+        assertEquals(book, actual);
+    }
+
 }

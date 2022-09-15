@@ -4,10 +4,7 @@ import com.example.booklibrary.model.Book;
 import com.example.booklibrary.repository.BookDB;
 import com.example.booklibrary.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,4 +28,10 @@ public class BookController {
     public Book getBookById(@PathVariable String id){
         return bookService.getBookById(id);
     }
+
+    @PostMapping
+    public Book postNewBook(@RequestBody Book book){
+        return bookService.postNewBook(book);
+    }
+
 }
